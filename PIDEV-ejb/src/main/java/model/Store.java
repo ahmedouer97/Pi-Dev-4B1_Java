@@ -28,10 +28,12 @@ public class Store implements Serializable {
 	private String description;
 
 	@Column(name="heure_ferm")
-	private String heureFerm;
+	@Enumerated(EnumType.STRING)
+	private Heure heureFerm;
 
 	@Column(name="heure_ouv")
-	private String heureOuv;
+	@Enumerated(EnumType.STRING)
+	private Heure heureOuv;
 
 	@Column(name="Latitude")
 	private BigDecimal latitude;
@@ -44,10 +46,13 @@ public class Store implements Serializable {
 
 	private int tel;
 
-	private String type;
+	@Enumerated(EnumType.STRING)
+	private TypeBoutique type;
 
 	@Column(name="Ville")
-	private String ville;
+	@Enumerated(EnumType.STRING)
+	private Ville ville;
+
 
 	//bi-directional many-to-one association to ProductStore
 	@OneToMany(mappedBy="store")
@@ -80,21 +85,7 @@ public class Store implements Serializable {
 		this.description = description;
 	}
 
-	public String getHeureFerm() {
-		return this.heureFerm;
-	}
-
-	public void setHeureFerm(String heureFerm) {
-		this.heureFerm = heureFerm;
-	}
-
-	public String getHeureOuv() {
-		return this.heureOuv;
-	}
-
-	public void setHeureOuv(String heureOuv) {
-		this.heureOuv = heureOuv;
-	}
+	
 
 	public BigDecimal getLatitude() {
 		return this.latitude;
@@ -128,19 +119,37 @@ public class Store implements Serializable {
 		this.tel = tel;
 	}
 
-	public String getType() {
-		return this.type;
+	
+	
+	public Heure getHeureFerm() {
+		return heureFerm;
 	}
 
-	public void setType(String type) {
+	public void setHeureFerm(Heure heureFerm) {
+		this.heureFerm = heureFerm;
+	}
+
+	public Heure getHeureOuv() {
+		return heureOuv;
+	}
+
+	public void setHeureOuv(Heure heureOuv) {
+		this.heureOuv = heureOuv;
+	}
+
+	public TypeBoutique getType() {
+		return type;
+	}
+
+	public void setType(TypeBoutique type) {
 		this.type = type;
 	}
 
-	public String getVille() {
-		return this.ville;
+	public Ville getVille() {
+		return ville;
 	}
 
-	public void setVille(String ville) {
+	public void setVille(Ville ville) {
 		this.ville = ville;
 	}
 
