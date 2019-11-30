@@ -17,7 +17,7 @@ import model.Store;
 @LocalBean
 public class ServiceStoreImpl implements ServiceStore {
 
-	@PersistenceContext(unitName = "imputation-ejb")
+	@PersistenceContext(unitName = "pidev-ejb")
 	EntityManager em;
 	@Override
 	public int addStore(Store Store) {
