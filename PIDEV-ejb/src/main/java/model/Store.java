@@ -176,7 +176,7 @@ public class Store implements Serializable {
 	}
 
 	public Store( String nom, Ville ville,String adresse, String description, BigDecimal latitude,
-			BigDecimal longitude, int tel, TypeBoutique type ,Heure heureFerm, Heure heureOuv) {
+			BigDecimal longitude, int tel, TypeBoutique type , Heure heureOuv,Heure heureFerm) {
 		super();
 		this.adresse = adresse;
 		this.description = description;

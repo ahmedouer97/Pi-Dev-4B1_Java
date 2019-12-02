@@ -6,6 +6,75 @@ xmlns:ui="http://java.sun.com/jsf/facelets" template="/Template/Backend/homeback
  <ui:define name="content">
  <div class="container">
      
+     <br/><br/>
+<h:form>
+<table>
+<tr><td><h:outputText value="Nom du boutique "></h:outputText></td>
+<td><h:inputText value="#{StoreBean.nom}"></h:inputText></td></tr>
+
+<tr><td><h:outputText value="Ville"></h:outputText></td>
+<td><h:selectOneMenu value="#{StoreBean.ville}">
+<f:selectItem itemLabel="Choisir la ville"
+itemValue=""/>
+<f:selectItems value="data.ville" />
+</h:selectOneMenu></td></tr>
+
+<tr><td><h:outputText value="Adresse"></h:outputText></td>
+<td><h:inputText value="#{StoreBean.adresse}"></h:inputSecret></td></tr>
+
+<tr><td><h:outputText value="Description"></h:outputText></td>
+<td><h:inputText value="#{StoreBean.description}"></h:inputSecret></td></tr>
+
+<tr><td><h:outputText value="Latitude"></h:outputText></td>
+<td><h:inputText value="#{StoreBean.latitude}"></h:inputSecret></td></tr>
+
+<tr><td><h:outputText value="Longitude"></h:outputText></td>
+<td><h:inputText value="#{StoreBean.longitude}"></h:inputSecret></td></tr>
+
+<tr><td><h:outputText value="Telephone"></h:outputText></td>
+<td><h:inputText value="#{StoreBean.tel}"></h:inputSecret></td></tr>
+
+<tr><td><h:outputText value="Type de boutique"></h:outputText></td>
+<td><h:selectOneMenu value="#{StoreBean.type}">
+<f:selectItem itemLabel="Choisir le type"
+itemValue=""/>
+<f:selectItems value="data.types" />
+</h:selectOneMenu></td></tr>
+
+<tr><td><h:outputText value="Type de boutique"></h:outputText></td>
+<td><h:selectOneMenu value="#{StoreBean.type}">
+<f:selectItem itemLabel="Choisir le type"
+itemValue=""/>
+<f:selectItems value="data.types" />
+</h:selectOneMenu></td></tr>
+
+<tr><td><h:outputText value="Type de boutique"></h:outputText></td>
+<td><h:selectOneMenu value="#{StoreBean.type}">
+<f:selectItem itemLabel="Choisir le type"
+itemValue=""/>
+<f:selectItems value="data.types" />
+</h:selectOneMenu></td></tr>
+
+<tr><td><h:outputText value="Heure d ouverture"></h:outputText></td>
+<td><h:selectOneMenu value="#{StoreBean.heureOuv}">
+<f:selectItem itemLabel="Choisir l'heure"
+itemValue=""/>
+<f:selectItems value="data.heures" />
+</h:selectOneMenu></td></tr>
+
+<tr><td><h:outputText value="Heure de fermeture"></h:outputText></td>
+<td><h:selectOneMenu value="#{StoreBean.heureFerm}">
+<f:selectItem itemLabel="Choisir l'heure"
+itemValue=""/>
+<f:selectItems value="data.heures" />
+</h:selectOneMenu></td></tr>
+<tr><td colspan="2"><h:commandButton value="Ajouter boutique" action="#{StoreBean.addStore()}" /></td></tr>
+
+
+</table>
+<h:link outcome="/Pages/adminTimesheet/Welcome" value="Accueil"/>
+</h:form>
+     
 
     </div> <!-- /container -->
     
