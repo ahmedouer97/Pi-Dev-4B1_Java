@@ -32,7 +32,7 @@ public class Evaluation implements Serializable {
 	@Column(name = "conseilId")
 	private int conseilId;
 	
-	private Conseil conseil;
+	//private Conseil conseil;
 	
 	public Evaluation() {}
 
@@ -67,7 +67,7 @@ public class Evaluation implements Serializable {
 	public void setConseilId(int conseilId) {
 		this.conseilId = conseilId;
 	}
-
+/*
 	public Conseil getConseil() {
 		return conseil;
 	}
@@ -76,7 +76,6 @@ public class Evaluation implements Serializable {
 		this.conseil = conseil;
 	}
 	
-	
-	
+*/	
 
 }

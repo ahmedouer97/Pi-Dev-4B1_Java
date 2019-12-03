@@ -1,4 +1,4 @@
-package ManagedBean;
+/*package ManagedBean;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -6,7 +6,6 @@ import java.util.List;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import Interface.ServiceStore;
 import model.Heure;
 import model.Store;
 import model.TypeBoutique;
@@ -127,4 +126,4 @@ public void setServiceStore(ServiceStore serviceStore) {
 
 
 
-}
+}*/

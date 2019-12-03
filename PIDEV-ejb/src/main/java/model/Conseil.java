@@ -40,9 +40,9 @@ public class Conseil implements Serializable {
 	private Date ConseilDate;
 	
 	// bi-directional many-to-one association to ArtworkSale
-	@OneToMany(mappedBy = "conseil",fetch=FetchType.EAGER)
+	/*@OneToMany(mappedBy = "conseil",fetch=FetchType.EAGER)
 	private List<Conseil> Conseils;
-	
+	*/
 	public Conseil() {}
 
 	public int getConseilId() {
@@ -84,7 +84,7 @@ public class Conseil implements Serializable {
 	public void setConseilDate(Date conseilDate) {
 		ConseilDate = conseilDate;
 	}
-
+/*
 	public List<Conseil> getConseils() {
 		return Conseils;
 	}
@@ -92,7 +92,7 @@ public class Conseil implements Serializable {
 	public void setConseils(List<Conseil> conseils) {
 		Conseils = conseils;
 	}
-	
+	*/
 	
 		
 		
