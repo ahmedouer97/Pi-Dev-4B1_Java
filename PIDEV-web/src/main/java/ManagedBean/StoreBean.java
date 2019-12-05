@@ -1,4 +1,4 @@
-/*package ManagedBean;
+package ManagedBean;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -6,12 +6,13 @@ import java.util.List;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import Interface.ServiceStore;
 import model.Heure;
 import model.Store;
 import model.TypeBoutique;
 import model.Ville;
 
-@ManagedBean(name = "StoreBean")
+@ManagedBean(name = "storeBean") 	
 @SessionScoped
 public class StoreBean implements Serializable {
 private static final long serialVersionUID = 1L;
@@ -34,15 +35,16 @@ ServiceStore ServiceStore;
 
 public void addStore() {
 	ServiceStore.addStore(new Store(nom,ville,adresse,description,latitude,
-longitude, tel,  type , heureFerm,  heureOuv)  );
+longitude, tel,  type ,heureOuv, heureFerm  )  );
 }
 public List<Store> getAllStores() {
 stores = ServiceStore.getAllStores();
+System.out.println(stores);
 return stores;
 }
 
-public void removeStore(Integer employeId)
-{ ServiceStore.deleteStoreById(employeId);
+public void removeStore(Integer boutiqueId)
+{ ServiceStore.deleteStoreById(boutiqueId);
 }
 public int getBoutiqueId() {
 	return boutiqueId;
@@ -126,4 +128,4 @@ public void setServiceStore(ServiceStore serviceStore) {
 
 
 
-}*/
+}
