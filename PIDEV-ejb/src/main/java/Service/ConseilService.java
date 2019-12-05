@@ -1,32 +1,44 @@
 package Service;
 
+import java.util.Date;
+
+
 import java.util.List;
 
+import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
-import javax.management.Query;
+//import javax.ejb.Stateless;
+
+//import javax.management.Query;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import Interface.ConseilServiceLocal;
+
 import Interface.ConseilServiceRemote;
 import model.Conseil;
 
 
 
 @Stateless
-public class ConseilService implements ConseilServiceLocal, ConseilServiceRemote {
+@LocalBean
+public class ConseilService implements ConseilServiceRemote {
 
-	@PersistenceContext
+	@PersistenceContext(name="pidev-ejb")
 	private EntityManager entityManager;
+	
+	
 	
     public ConseilService() {
         
     }
     
 	@Override
+	
 	public void addConseil(Conseil conseil) {
-		entityManager.persist(conseil);
-		System.out.println("bbb");
+		Date conseilDate = new Date();
+		Conseil cons = new Conseil(conseil.getConseilId(),conseil.getTitle(),conseil.getDescription(),conseilDate);
+		entityManager.persist(cons);
+		entityManager.flush();
 		
 	}
 
@@ -37,9 +49,36 @@ public class ConseilService implements ConseilServiceLocal, ConseilServiceRemote
 	}
 
 	@Override
-	public Conseil findConseilById(int id) {
+	public Conseil findConseilById(int conseilId) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	
+
+	@Override
+	public void deleteConseilById(int ConseilId) {
+		Conseil c = entityManager.find(Conseil.class,ConseilId);
+		entityManager.remove(c);
+		
+	}
+
+	@Override
+	
+
+	public List<Conseil> findAllConseils() {
+		List<Conseil> emp = entityManager.createQuery("Select e from Conseil e",
+				Conseil.class).getResultList();
+				return emp;
+		
+	}
+
+	public EntityManager getEntityManager() {
+		return entityManager;
+	}
+
+	public void setEntityManager(EntityManager entityManager) {
+		this.entityManager = entityManager;
 	}
 
 	@Override
@@ -48,20 +87,18 @@ public class ConseilService implements ConseilServiceLocal, ConseilServiceRemote
 		
 	}
 
-	@Override
-	public void deleteConseilById(int id) {
-		entityManager.remove(findConseilById(id));
-		
-	}
 
-	@Override
+
 	
 
-	public List<Conseil> findAllConseils() {
-		List<Conseil> emp = entityManager.createQuery("Select e from Employes e",
-				Conseil.class).getResultList();
-				return emp;
-		
-	}
+
+	
+	
+
+	
+	
+	
+	
+	
 
 }

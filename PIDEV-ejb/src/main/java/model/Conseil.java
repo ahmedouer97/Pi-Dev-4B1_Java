@@ -1,20 +1,19 @@
 package model;
 
 import java.io.Serializable;
-import java.sql.Date;
-import java.util.List;
 
+import java.util.Date;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.NamedQuery;
+
 import javax.persistence.OneToMany;
 
 @Entity
-@NamedQuery(name = "Conseil.findAll", query = "SELECT a FROM Conseil a")
 public class Conseil implements Serializable {
 
 	/**
@@ -33,16 +32,20 @@ public class Conseil implements Serializable {
 	@Column(name = "Description")
 	private String description;
 	
+	
+	
+	
+
 	@Column(name = "ConseilImagePath")
-	private String conseilImagePath;
+    private String conseilImagePath;
 	
 	@Column(name = "ConseilDate")
 	private Date ConseilDate;
 	
-	// bi-directional many-to-one association to ArtworkSale
-	/*@OneToMany(mappedBy = "conseil",fetch=FetchType.EAGER)
-	private List<Conseil> Conseils;
-	*/
+	 //bi-directional many-to-one association to ArtworkSale
+	@OneToMany(mappedBy = "conseil",fetch=FetchType.EAGER)
+	private List<Evaluation> evaluations;
+	
 	public Conseil() {}
 
 	public int getConseilId() {
@@ -69,6 +72,8 @@ public class Conseil implements Serializable {
 		this.description = description;
 	}
 
+	
+
 	public String getConseilImagePath() {
 		return conseilImagePath;
 	}
@@ -84,15 +89,46 @@ public class Conseil implements Serializable {
 	public void setConseilDate(Date conseilDate) {
 		ConseilDate = conseilDate;
 	}
-/*
-	public List<Conseil> getConseils() {
-		return Conseils;
+
+	public List<Evaluation> getEvaluations() {
+		return evaluations;
 	}
 
-	public void setConseils(List<Conseil> conseils) {
-		Conseils = conseils;
+	public void setEvaluations(List<Evaluation> evaluations) {
+		this.evaluations = evaluations;
 	}
-	*/
+
+	public Conseil(int conseilId, String title, String description, Date conseilDate) {
+		
+		this.conseilId = conseilId;
+		this.Title = title;
+		this.description = description;
+		this.ConseilDate = conseilDate;
+	}
+
+	public Conseil(int conseilId, String title, String description,String conseilImagePath) {
+		super();
+		this.conseilId = conseilId;
+		Title = title;
+		this.description = description;
+		this.conseilImagePath = conseilImagePath;
+	}
+
+	public Conseil(int conseilId, String title, String description,String conseilImagePath, Date conseilDate) {
+		super();
+		this.conseilId = conseilId;
+		Title = title;
+		this.description = description;
+		this.conseilImagePath = conseilImagePath;
+		ConseilDate = conseilDate;
+	}
+
+	
+	
+	
+
+	
+	
 	
 		
 		

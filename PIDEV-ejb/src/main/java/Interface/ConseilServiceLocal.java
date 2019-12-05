@@ -15,7 +15,7 @@ void addConseil(Conseil conseil);
 	
 	Conseil findConseilById(int id);
 
-	void updateConseil(Conseil conseil);
+	
 
 	void deleteConseilById(int id);
 
