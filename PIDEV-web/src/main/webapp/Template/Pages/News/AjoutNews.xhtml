@@ -1,0 +1,39 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+xmlns:f="http://java.sun.com/jsf/core"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:ui="http://java.sun.com/jsf/facelets" template="/Template/Backend/homeback.xhtml">
+
+ <ui:define name="content">		 
+		 
+		 
+		 
+		 
+		 <div class="container">
+     
+     <br/><br/>
+<h:form>
+<table>
+<tr><td><h:outputText value="titre "></h:outputText></td>
+<td><h:inputText id="titre" value="#{NewsBean.titre}"></h:inputText></td></tr>
+
+<tr><td><h:outputText value="image"></h:outputText></td>
+<td><h:inputText id="image" value="#{NewsBean.image}"></h:inputText></td></tr>
+
+<tr><td><h:outputText value="contenue"></h:outputText></td>
+<td><h:inputText id="contenue" value="#{NewsBean.contenue}"></h:inputText></td></tr>
+
+<tr><td><h:outputText value="Auteur"></h:outputText></td>
+<td><h:inputText id="nomAuteur" value="#{NewsBean.nomAuteur}"></h:inputText></td></tr>
+
+<tr><td colspan="2"><h:commandButton value="Ajouter News" action="#{NewsBean.addNews()}" /></td></tr>
+
+
+</table>
+
+</h:form>
+     
+
+    </div> <!-- /container -->
+		  </ui:define>
+ 
+</ui:composition> 
