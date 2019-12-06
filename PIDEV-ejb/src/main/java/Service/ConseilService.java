@@ -1,4 +1,4 @@
-package Service;
+/*package Service;
 
 import java.util.Date;
 
@@ -101,4 +101,4 @@ public class ConseilService implements ConseilServiceRemote {
 	
 	
 
-}
+}*/

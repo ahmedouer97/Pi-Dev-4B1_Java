@@ -1,4 +1,4 @@
-package Service;
+/*package Service;
 
 import javax.ejb.Stateless;
 
@@ -21,4 +21,4 @@ public class EvaluationService implements EvaluationServiceLocal, EvaluationServ
 		
 	}
 
-}
+}*/

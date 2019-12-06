@@ -54,13 +54,12 @@ public class NewsService implements NewsServiceRemote, NewsServiceLocal {
 	
 	@Override
 	public List<News> getAllNews() {
-		/*TypedQuery<News> query;
+		TypedQuery<News> query;
 		
 		query=em.createQuery("SELECT e FROM News e",News.class);
-		List<News> users = query.getResultList();
-		return users;*/
-		List<News> News = em.createQuery("SELECT s FROM Store s",News.class).getResultList();
-		return News;
+		List<News> Newss = query.getResultList();
+		return Newss;
+		 
 		
 		
 	}

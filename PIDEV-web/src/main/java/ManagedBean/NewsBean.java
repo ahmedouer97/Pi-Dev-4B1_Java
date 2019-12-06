@@ -23,7 +23,8 @@ public class NewsBean implements Serializable{
 	private String image;
 	private String contenue ;
 	private String nomAuteur;
-	private List<News> News;
+	private List<News> Newss;
+	//private News New ;
 	@EJB
 	NewsServiceLocal cm;
 	NewsService cmm;
@@ -58,9 +59,11 @@ public class NewsBean implements Serializable{
 		this.nomAuteur = nomAuteur;
 	}
 	
+	
+	
 	public List<News> getAllNews(){
-		News = cmm.getAllNews();
-		return News ;	
+		Newss = cm.getAllNews();
+		return Newss ;	
 			
 	}
 	

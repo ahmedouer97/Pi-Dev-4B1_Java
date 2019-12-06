@@ -9,23 +9,23 @@ xmlns:ui="http://java.sun.com/jsf/facelets" template="/Template/Backend/homeback
      <center><h2>List of News</h2></center><br/><br/>
 <h:panelGroup columns="2">
 
-<h:dataTable class="table" value="#{NewsBean.allNews}" var="News" border="1">
+<h:dataTable class="table" value="#{NewsBean.allNews}" var="Newss" border="1">
 
 <h:column><f:facet name="header"><h:outputText value="titre"
 /></f:facet>
-<h:outputText value="#{News.titre}" /></h:column>
+<h:outputText value="#{Newss.titre}" /></h:column>
 
 <h:column><f:facet name="header"><h:outputText value="image"
 /></f:facet>
-<h:outputText value="#{News.image}" /></h:column>
+<h:outputText value="#{Newss.image}" /></h:column>
 
 <h:column><f:facet name="header"><h:outputText value="contenue"
 /></f:facet>
-<h:outputText value="#{News.contenue}" /></h:column>
+<h:outputText value="#{Newss.contenue}" /></h:column>
 
 <h:column><f:facet name="header"><h:outputText value="nomAuteur"/></f:facet>
 
-<h:outputText value="#{News.nomAuteur}" /></h:column>
+<h:outputText value="#{Newss.nomAuteur}" /></h:column>
 
 
 

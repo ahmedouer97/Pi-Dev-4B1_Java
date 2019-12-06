@@ -1,4 +1,4 @@
-package Interface;
+/*package Interface;
 
 import javax.ejb.Local;
 
@@ -10,4 +10,4 @@ public interface EvaluationServiceLocal {
   void addEvaluation(Evaluation evaluation);
 	
   void updateEvaluation(Evaluation evaluation);
-}
+}*/

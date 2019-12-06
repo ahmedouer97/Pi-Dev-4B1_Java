@@ -1,4 +1,4 @@
-package Interface;
+/*package Interface;
 
 import java.util.List;
 
@@ -21,4 +21,4 @@ void addConseil(Conseil conseil);
 
 	List<Conseil> findAllConseils();
 
-}
+}*/

@@ -1,19 +1,15 @@
-package Service;
-
-
+package Interface;
 
 import java.util.List;
 
-import javax.ejb.Local;
+import javax.ejb.Remote;
 
 import model.News;
 
-@Local
-public interface NewsServiceLocal {
+@Remote
+public interface NewsServiceRemote {
 
-
-
-	void updateNews(News t);	
+void updateNews(News t);	
 	
 	List<News> getAllNews();
 

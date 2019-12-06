@@ -1,4 +1,4 @@
-package ManagedBean;
+/*package ManagedBean;
 
 import java.io.Serializable;
 
@@ -24,7 +24,7 @@ public class ConseilBean implements Serializable {
 
 	/**
 	 * 
-	 */
+	
 	private static final long serialVersionUID = 1L;
 	private int conseilId;
 	private String Title;
@@ -67,7 +67,7 @@ public class ConseilBean implements Serializable {
 	/*public String editPerson() {
 		editPerson = (Conseil) conseils.getRowData();
 		return "edit";
-	}*/
+	}
 	
 	public void mettreAjourConseil(){
 		conseilService.updateConseil(new Conseil(conseilIdToBeUpdated,Title,description,conseilImagePath,ConseilDate));
@@ -146,4 +146,4 @@ public class ConseilBean implements Serializable {
 	
 	
 
-}
+} */
