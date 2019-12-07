@@ -21,7 +21,7 @@ public interface NewsServiceLocal {
 
 	int addNews(News news);
 
-	Boolean delNews(int id);
+	void delNews(int id);
 
 	void deleteUser(Integer id);
 

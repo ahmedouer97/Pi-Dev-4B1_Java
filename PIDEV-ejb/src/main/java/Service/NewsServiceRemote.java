@@ -17,7 +17,7 @@ void updateNews(News t);
 
 	int addNews(News news);
 
-	Boolean delNews(int id);
+	void delNews(int id);
 
 	void deleteUser(Integer id);
 

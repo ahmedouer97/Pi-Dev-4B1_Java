@@ -25,6 +25,11 @@ xmlns:ui="http://java.sun.com/jsf/facelets" template="/Template/Backend/homeback
 <tr><td><h:outputText value="Auteur"></h:outputText></td>
 <td><h:inputText id="nomAuteur" value="#{NewsBean.nomAuteur}"></h:inputText></td></tr>
 
+<tr><td><h:outputText value="datePublish"></h:outputText></td>
+<td><h:inputText value="#{NewsBean.datePublish}">  
+   <f:convertDateTime pattern="yyyy-MM-dd"/>  
+</h:inputText></td></tr>
+
 <tr><td colspan="2"><h:commandButton value="Ajouter News" action="#{NewsBean.addNews()}" /></td></tr>
 
 

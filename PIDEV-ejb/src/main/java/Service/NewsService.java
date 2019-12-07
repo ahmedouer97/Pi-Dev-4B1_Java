@@ -10,6 +10,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
 import model.News;
+import model.Store;
 
 /**
  * Session Bean implementation class NewsService
@@ -41,14 +42,16 @@ public class NewsService implements NewsServiceRemote, NewsServiceLocal {
 	}
 	
 	@Override
-	public Boolean delNews(int id) {
-		System.out.println(" Delete with Succes");
+	public void delNews(int id) {
+	/*	System.out.println(" Delete with Succes");
 	News news = em.find(News.class, id);
 	if (news != null)
 	{ em.remove(news);
 	return true ;
 	}
-	return false;
+	return false;*/
+		News e = em.find(News.class,id);
+		em.remove(e);
 	}
 	
 	
@@ -66,7 +69,7 @@ public class NewsService implements NewsServiceRemote, NewsServiceLocal {
 
 	@Override
 	public void updateNews(News t) {
-		// TODO Auto-generated method stub
+		
 		
 	}
 
@@ -78,7 +81,8 @@ public class NewsService implements NewsServiceRemote, NewsServiceLocal {
 
 	@Override
 	public void deleteUser(Integer id) {
-		// TODO Auto-generated method stub
+		News e = em.find(News.class,id);
+		em.remove(e);
 		
 	}
 

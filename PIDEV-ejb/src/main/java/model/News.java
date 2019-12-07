@@ -1,6 +1,7 @@
 package model;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -17,12 +18,14 @@ public class News implements Serializable{
 	private int id;
     @Column(name = "titre")
 	private String titre;
-    @Column(name = "image")
+	@Column(name = "image")
 	private String image;
     @Column(name = "contenue")
 	private String contenue;
     @Column(name = "nomAuteur")
 	private String nomAuteur;
+    @Column(name = "datePublish")
+    private Date datePublish ;
 	public String getTitre() {
 		return titre;
 	}
@@ -55,6 +58,14 @@ public class News implements Serializable{
 	public void setNomAuteur(String nomAuteur) {
 		this.nomAuteur = nomAuteur;
 	}
+	
+	 
+	public Date getDatePublish() {
+		return datePublish;
+	}
+	public void setDatePublish(Date datePublish) {
+		this.datePublish = datePublish;
+	}
 	public News(String titre, String image, String contenue, String nomAuteur) {
 		super();
 		this.titre = titre;
@@ -73,6 +84,26 @@ public class News implements Serializable{
 	public News() {
 		super();
 	}
+	public News(int id, String titre, String image, String contenue, String nomAuteur, Date datePublish) {
+		super();
+		this.id = id;
+		this.titre = titre;
+		this.image = image;
+		this.contenue = contenue;
+		this.nomAuteur = nomAuteur;
+		this.datePublish = datePublish;
+	}
+	public News(String titre, String image, String contenue, String nomAuteur, Date datePublish) {
+		super();
+		this.titre = titre;
+		this.image = image;
+		this.contenue = contenue;
+		this.nomAuteur = nomAuteur;
+		this.datePublish = datePublish;
+	}
+	
+	
+	
 	
 
 }

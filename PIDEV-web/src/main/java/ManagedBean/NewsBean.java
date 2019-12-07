@@ -1,6 +1,7 @@
 package ManagedBean;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 import javax.ejb.EJB;
@@ -23,13 +24,14 @@ public class NewsBean implements Serializable{
 	private String image;
 	private String contenue ;
 	private String nomAuteur;
+	private Date datePublish ;
 	private List<News> Newss;
 	//private News New ;
 	@EJB
 	NewsServiceLocal cm;
 	NewsService cmm;
 	public void addNews () {
-		cm.addNews(new News(titre,image,contenue,nomAuteur));
+		cm.addNews(new News(titre,image,contenue,nomAuteur,datePublish));
 		
 	}
 	public String getTitre() {
@@ -61,6 +63,13 @@ public class NewsBean implements Serializable{
 	
 	
 	
+	
+	public Date getDatePublish() {
+		return datePublish;
+	}
+	public void setDatePublish(Date datePublish) {
+		this.datePublish = datePublish;
+	}
 	public List<News> getAllNews(){
 		Newss = cm.getAllNews();
 		return Newss ;	
