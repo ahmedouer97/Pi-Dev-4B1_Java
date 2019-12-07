@@ -90,7 +90,7 @@ public class Forfait implements Serializable{
 				return false;
 		} else if (!Description.equals(other.Description))
 			return false;
-		if (iduser != other.iduser)//
+		if (iduser != other.iduser)//s
 			return false;
 		if (nom == null) {
 			if (other.nom != null)
