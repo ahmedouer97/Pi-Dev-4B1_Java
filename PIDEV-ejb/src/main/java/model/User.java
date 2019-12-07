@@ -15,7 +15,7 @@ import java.util.List;
 public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	@Id
+	@Id//
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int iduser;
 	
