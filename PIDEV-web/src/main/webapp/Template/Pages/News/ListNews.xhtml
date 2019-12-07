@@ -1,6 +1,7 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
 xmlns:f="http://java.sun.com/jsf/core"
 xmlns:h="http://java.sun.com/jsf/html"
+xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
 xmlns:ui="http://java.sun.com/jsf/facelets" template="/Template/Backend/homeback.xhtml">
 <ui:param name="page_name" value="Accueil" />
  <ui:define name="content">
@@ -46,5 +47,59 @@ value="Supprimer" /></h:column>
 </h:form>
 
  </ui:define>
+	<ui:define name="content">
+<section class="section-container"> <!-- Page content-->
+		<div class="content-wrapper">
+<h:link outcome="/pages/News/ListNews"
+			value="View List News" />
+			<h:form>
 
+</h:form>
+<script>
+    var events = []
+</script>
+  <c:forEach items="#{NewsBean.allNews}" var="Newss" >
+    <script>
+        events.push({
+            title : 'Content: #{Newss.titre}\nState: #{Newss.titre}',
+            start: new Date('#{Newss.datePublish}'.replace(/\//g, '-')),
+            allDay: true
+        })
+    </script>
+</c:forEach>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
+        crossorigin="anonymous"></script>
+
+<link href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.css" rel="stylesheet" />
+<link href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.print.css" rel="stylesheet" media="print" />
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.js"></script>
+
+
+<div id="calender"></div>
+<script>
+    function GenerateCalender(events) {
+                $('#calender').fullCalendar('destroy');
+                $('#calender').fullCalendar({
+                    events: events,
+                    contentHeight: 400,
+                    defaultDate: new Date(),
+                    timeFormat: 'h(:mm)a',
+                    header: {
+                        left: 'prev,next today',
+                        center: 'title',
+                        right: 'month,basicWeek,basicDay,agenda'
+                    },
+                    eventLimit: true,
+                    eventColor: '#b0f2b6'
+                })
+    }
+    console.log(events)
+    GenerateCalender(events)
+</script>
+</div>
+</section>
+</ui:define>
 </ui:composition>  
