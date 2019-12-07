@@ -1,4 +1,4 @@
-package Interface;
+/*package Interface;
 
 import javax.ejb.Remote;
 
@@ -14,4 +14,4 @@ public interface EvaluationServiceRemote {
 	
 	void updateEvaluation(Evaluation evaluation);
 
-}
+}*/

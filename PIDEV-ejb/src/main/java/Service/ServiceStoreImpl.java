@@ -1,9 +1,7 @@
-/*package Service;
+package Service;
 
 
 import java.util.List;
-
-
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -19,7 +17,7 @@ public class ServiceStoreImpl implements ServiceStore {
 
 	@PersistenceContext(unitName = "pidev-ejb")
 	EntityManager em;
-	@Override
+	
 	public int addStore(Store Store) {
 		em.persist(Store);
 		return Store.getBoutiqueId();
@@ -67,12 +65,10 @@ public class ServiceStoreImpl implements ServiceStore {
 
 	
 	public List<Store> getAllStores() {
-		List<Store> b = em.createQuery("Select e from Store e",
-				Store.class).getResultList();
+		List<Store> b = em.createQuery("SELECT s FROM Store s",Store.class).getResultList();
 				return b;
 	}
 
 
 
 }
-*/

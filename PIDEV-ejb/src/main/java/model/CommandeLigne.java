@@ -47,8 +47,18 @@ public class CommandeLigne implements Serializable {
 	@ManyToOne
 	@JoinColumn(name="iduser")
 	private User user;
-
+	@ManyToOne
+	@JoinColumn(name="iddelivery")
+	Delivery delivery; 
 	public CommandeLigne() {
+	}
+
+	public Delivery getDelivery() {
+		return delivery;
+	}
+
+	public void setDelivery(Delivery delivery) {
+		this.delivery = delivery;
 	}
 
 	public int getIdcomlig() {

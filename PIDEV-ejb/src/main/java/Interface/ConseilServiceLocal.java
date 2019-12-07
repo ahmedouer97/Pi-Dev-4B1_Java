@@ -1,4 +1,4 @@
-package Interface;
+/*package Interface;
 
 import java.util.List;
 
@@ -15,10 +15,10 @@ void addConseil(Conseil conseil);
 	
 	Conseil findConseilById(int id);
 
-	void updateConseil(Conseil conseil);
+	
 
 	void deleteConseilById(int id);
 
 	List<Conseil> findAllConseils();
 
-}
+}*/

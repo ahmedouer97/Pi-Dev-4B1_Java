@@ -1,0 +1,50 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+xmlns:f="http://java.sun.com/jsf/core"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+xmlns:ui="http://java.sun.com/jsf/facelets" template="/Template/Backend/homeback.xhtml">
+<ui:param name="page_name" value="Accueil" />
+ <ui:define name="content">
+
+   <h:form>
+     <center><h2>List of News</h2></center><br/><br/>
+<h:panelGroup columns="2">
+
+<h:dataTable class="table" value="#{NewsBean.allNews}" var="Newss" border="1">
+
+<h:column><f:facet name="header"><h:outputText value="titre"
+/></f:facet>
+<h:outputText value="#{Newss.titre}" /></h:column>
+
+<h:column><f:facet name="header"><h:outputText value="image"
+/></f:facet>
+<h:outputText value="#{Newss.image}" /></h:column>
+
+<h:column><f:facet name="header"><h:outputText value="contenue"
+/></f:facet>
+<h:outputText value="#{Newss.contenue}" /></h:column>
+
+<h:column><f:facet name="header"><h:outputText value="nomAuteur"/></f:facet>
+
+<h:outputText value="#{Newss.nomAuteur}" /></h:column>
+
+<h:column><f:facet name="header"><h:outputText value="datePublish"/></f:facet>
+
+<h:outputText value="#{Newss.datePublish}" /></h:column>
+<h:column><f:facet name="header"><h:outputText value="Action" /></f:facet>
+<h:commandButton action="#{NewsBean.supprimer(Newss.id)}"
+value="Supprimer" /></h:column>
+
+
+
+
+</h:dataTable>
+</h:panelGroup>
+
+<br/><br/>
+
+
+</h:form>
+
+ </ui:define>
+</ui:composition>  

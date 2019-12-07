@@ -1,0 +1,79 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+xmlns:f="http://java.sun.com/jsf/core"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:ui="http://java.sun.com/jsf/facelets"
+ template="/Template/Backend/homeback.xhtml"
+>
+<link rel="stylesheet" 
+      href="#{request.contextPath}/Template/Backend/css/sb-admin-2.min.css"></link>
+ 
+ <ui:define name="content"  >
+
+     
+    
+<h:form>
+<center>
+<table style="text-align: center;">
+<tr><td><br/><h:outputText value="Store name " class = "control-label col-md-2"></h:outputText></td>
+<td><br/><h:inputText value="#{storeBean.nom}" class = "form-control"></h:inputText></td></tr>
+
+<tr><td><br/><h:outputText value="City" class = "control-label col-md-2"></h:outputText></td>
+<td><br/><h:selectOneMenu value="#{storeBean.ville}" class = "form-control">
+<f:selectItem itemLabel="Choose city"
+itemValue=""/>
+<f:selectItems value="#{data.villes}" />
+</h:selectOneMenu></td></tr>
+
+
+<tr><td><br/><h:outputText value="Address" class = "control-label col-md-2"></h:outputText></td>
+<td><br/><h:inputText value="#{storeBean.adresse}" class = "form-control"></h:inputText></td></tr>
+
+<tr><td><br/><h:outputText value="Description" class = "control-label col-md-2"></h:outputText></td>
+<td><br/><h:inputText value="#{storeBean.description}" class = "form-control"></h:inputText></td></tr>
+
+<tr><td><br/><h:outputText value="Latitude" class = "control-label col-md-2"></h:outputText></td>
+<td><br/><h:inputText value="#{storeBean.latitude}" class = "form-control"></h:inputText></td></tr>
+
+<tr><td><br/><h:outputText value="Longitude" class = "control-label col-md-2"></h:outputText></td>
+<td><br/><h:inputText value="#{storeBean.longitude}" class = "form-control"></h:inputText></td></tr>
+
+<tr><td><br/><h:outputText value="Phone Number" class = "control-label col-md-2" ></h:outputText></td>
+<td><br/><h:inputText value="#{storeBean.tel}" class = "form-control"></h:inputText></td></tr>
+
+
+<tr><td><br/><h:outputText value="Type of store" class = "control-label col-md-2"></h:outputText></td>
+<td><br/><h:selectOneMenu value="#{storeBean.type}" class = "form-control">
+<f:selectItem itemLabel="Choose type"
+itemValue=""/>
+<f:selectItems value="#{data.typeBoutiques}" />
+</h:selectOneMenu></td></tr>
+
+
+<tr><td><br/><h:outputText value="Opens at" class = "control-label col-md-2"></h:outputText></td>
+<td><br/><h:selectOneMenu value="#{storeBean.heureOuv}" class = "form-control">
+<f:selectItem itemLabel="Choose time"
+itemValue=""/>
+<f:selectItems value="#{data.heures}" />
+</h:selectOneMenu></td></tr>
+
+<tr><td><br/><h:outputText value="Closes at" class = "control-label col-md-2"></h:outputText></td>
+<td><br/><h:selectOneMenu value="#{storeBean.heureFerm}" class = "form-control">
+<f:selectItem itemLabel="Choose time"
+itemValue=""/>
+<f:selectItems value="#{data.heures}" />
+</h:selectOneMenu></td></tr>
+
+<tr><td colspan="2"><br/><br/><h:commandButton value="Add Store"  class="btn btn-info" action="#{storeBean.addStore()}" /></td></tr>
+
+
+</table>
+</center>
+<h:link outcome="/ListStore" value="Liste"  class="btn btn-info"/>
+</h:form>
+     
+
+
+    
+ </ui:define>
+ 
+</ui:composition> 

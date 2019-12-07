@@ -1,8 +1,10 @@
-package Interface;
+/*package Interface;
 
 import java.util.List;
 
+
 import javax.ejb.Remote;
+
 
 import model.Conseil;
 
@@ -13,12 +15,19 @@ public interface ConseilServiceRemote {
 	
 	void deleteConseil(Conseil conseil);
 	
-	Conseil findConseilById(int id);
+	Conseil findConseilById(int conseilId);
 
 	void updateConseil(Conseil conseil);
+		
+		
+	
 
-	void deleteConseilById(int id);
+	void deleteConseilById(int ConseilId);
 
 	List<Conseil> findAllConseils();
 
+	
+	
+
 }
+*/
