@@ -1,4 +1,4 @@
-/*package Service;
+package Service;
 
 import java.util.Date;
 
@@ -16,6 +16,7 @@ import javax.persistence.PersistenceContext;
 
 import Interface.ConseilServiceRemote;
 import model.Conseil;
+import model.FTPProvider;
 
 
 
@@ -36,7 +37,7 @@ public class ConseilService implements ConseilServiceRemote {
 	
 	public void addConseil(Conseil conseil) {
 		Date conseilDate = new Date();
-		Conseil cons = new Conseil(conseil.getConseilId(),conseil.getTitle(),conseil.getDescription(),conseilDate);
+		Conseil cons = new Conseil(conseil.getConseilId(),conseil.getTitle(),conseil.getDescription(),conseil.getConseilImagePath(),conseilDate);
 		entityManager.persist(cons);
 		entityManager.flush();
 		
@@ -83,9 +84,25 @@ public class ConseilService implements ConseilServiceRemote {
 
 	@Override
 	public void updateConseil(Conseil conseil) {
-		entityManager.merge(conseil);
+		
+		Conseil c = entityManager.find(Conseil.class,conseil.getConseilId());
+		c.setTitle(conseil.getTitle());
+		c.setDescription(conseil.getDescription());
+		c.setConseilImagePath(conseil.getConseilImagePath());
+		entityManager.merge(c);
 		
 	}
+/*
+	@Override
+	public boolean uploadProfileImage(String conseilImagePath) {
+		if (FTPProvider.UploadImageToFTP(conseilImagePath)) {
+			return true;
+		} else {
+			return false;
+		}	
+	}*/
+
+	
 
 
 
@@ -101,4 +118,4 @@ public class ConseilService implements ConseilServiceRemote {
 	
 	
 
-}*/
+}

@@ -1,0 +1,42 @@
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/Template/Backend/homeback.xhtml">
+	<ui:param name="page_name" value="Ajouter Conseil" />
+
+	<ui:define name="content">
+		<div class="container">
+			<h:panelGroup columns="2">
+				<h:form id="form" enctype="multipart/form-data">
+					<table>
+						<tr>
+							<td><h:outputText value="Title"></h:outputText></td>
+							<td><h:inputText value="#{conseilBean.title}"></h:inputText></td>
+						</tr>
+
+						<tr>
+							<td><h:outputText value="Description"></h:outputText></td>
+							<td><h:inputTextarea value="#{conseilBean.description}"></h:inputTextarea></td>
+						</tr>
+						 <h:inputFile value="#{conseilBean.file}"/><br/>
+						<tr>
+							<td colspan="2"><h:commandButton value="Ajouter conseil"
+									action="#{conseilBean.Ajouter}" /></td>
+							
+						</tr>
+					</table>
+					
+					
+					
+				</h:form>
+			</h:panelGroup>
+			
+			
+			
+		</div>
+		<!-- /container -->
+
+	</ui:define>
+</ui:composition>
