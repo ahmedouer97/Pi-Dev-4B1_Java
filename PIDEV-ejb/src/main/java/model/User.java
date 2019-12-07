@@ -18,10 +18,74 @@ public class User implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int iduser;
-
+	
+	@Column(name="Nom")
 	private String nom;
 
+	@Column(name="Prenom")
 	private String prenom;
+	
+	@Column(name="solde")
+	private float solde ;
+	
+	@Column(name="Internet")
+	private float internet ;
+	
+	@Column(name="Email")
+	private String Email ;
+	
+
+	
+	@Column(name="numTel")
+	private int num ;
+	
+	@Column(name="isClient")
+	private boolean isclient ;
+	
+
+	public float getSolde() {
+		return solde;
+	}
+
+	public void setSolde(float solde) {
+		this.solde = solde;
+	}
+
+	public float getInternet() {
+		return internet;
+	}
+
+	public void setInternet(float internet) {
+		this.internet = internet;
+	}
+
+	public String getEmail() {
+		return Email;
+	}
+
+	public void setEmail(String email) {
+		Email = email;
+	}
+
+	public int getNum() {
+		return num;
+	}
+
+	public void setNum(int num) {
+		this.num = num;
+	}
+
+	public boolean isIsclient() {
+		return isclient;
+	}
+
+	public void setIsclient(boolean isclient) {
+		this.isclient = isclient;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 
 	//bi-directional many-to-one association to CommandeLigne
 	@OneToMany(mappedBy="user")
