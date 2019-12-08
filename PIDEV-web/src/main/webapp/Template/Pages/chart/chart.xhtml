@@ -1,0 +1,36 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui">
+
+ <h:head>
+    </h:head>
+
+
+
+<div class="row">
+
+<p:carousel value="#{offreBean.offres}" var="offre" itemStyle="width:200px">
+
+<h:outputText value="description: #{offre.description}" />
+<br/>
+<h:outputText value="title: #{offre.title}" />
+<br/>
+<h:outputText value="satrtdate: #{offre.startDate} ">
+    <f:convertDateTime pattern="dd.MM.yyyy HH:mm" />
+</h:outputText>
+<br/>
+<h:outputText value="satrtdate: #{offre.endDate} ">
+    <f:convertDateTime pattern="dd.MM.yyyy HH:mm" />
+</h:outputText>
+<br/>
+<h:outputText value="price: #{offre.price}" >
+<f:convertNumber pattern="#0.00" />
+</h:outputText>
+ </p:carousel>
+ 
+ 
+  
+ </div>
+
+ </html>

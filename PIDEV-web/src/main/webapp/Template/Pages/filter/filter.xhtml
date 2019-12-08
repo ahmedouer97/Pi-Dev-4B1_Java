@@ -1,0 +1,56 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+xmlns:f="http://java.sun.com/jsf/core"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:ui="http://java.sun.com/jsf/facelets" 
+xmlns:p="http://primefaces.org/ui"
+template="/Template/Backend/homeback.xhtml">
+
+ <ui:define name="content">
+ <div class="container">
+
+
+
+ <h:head>
+    </h:head>
+
+
+
+
+
+<p:dataTable var="offre" value="#{offreBean.offres}" widgetVar="offresTable"
+                 emptyMessage="No offers found with given criteria" filteredValue="#{filterView.filteredOffre}"
+                 globalFilterFunction="#{filterView.globalFilterFunction}">
+ 
+        <f:facet name="header">
+            <p:outputPanel>
+                <h:outputText value="Search all fields using globalFilterFunction:" />
+                <p:inputText id="globalFilter" onkeyup="PF('offresTable').filter()" style="width:150px" placeholder="Enter keyword"/>
+            </p:outputPanel>
+        </f:facet>
+ 
+        <p:column headerText="description">
+            <h:outputText value="#{offre.description}" />
+        </p:column>
+ 
+        <p:column headerText="title">
+            <h:outputText value="#{offre.title}" />
+        </p:column>
+ 
+       
+ 
+        <p:column headerText="Price">
+            <h:outputText value="#{offre.price}">
+                <f:convertNumber currencySymbol="$" type="currency"/>
+            </h:outputText>
+        </p:column>
+    </p:dataTable>
+     <h3>PDF</h3>
+<p:media value="/resources/demo/media/guide.pdf" width="100%" height="300px">
+    Your browser can't display pdf, <h:outputLink value="/resources/demo/media/guide.pdf">click</h:outputLink> to download pdf instead.
+</p:media>
+
+ </div> <!-- /container -->
+    
+ </ui:define>
+ 
+</ui:composition> 

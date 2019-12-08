@@ -95,6 +95,7 @@
 </dependency>
 
 
+
       <!-- Import the JPA API, we use provided scope as the API is included in JBoss WildFly -->
       <dependency>
          <groupId>org.hibernate.javax.persistence</groupId>
@@ -121,7 +122,12 @@
                </exclusion>
            </exclusions>
        </dependency>
-
+     <!-- https://mvnrepository.com/artifact/org.primefaces/primefaces -->
+<dependency>
+    <groupId>org.primefaces</groupId>
+    <artifactId>primefaces</artifactId>
+    <version>7.0</version>
+</dependency>
    </dependencies>
    
    <build>
@@ -137,4 +143,5 @@
          </plugin>
       </plugins>
    </build>
+
 </project>

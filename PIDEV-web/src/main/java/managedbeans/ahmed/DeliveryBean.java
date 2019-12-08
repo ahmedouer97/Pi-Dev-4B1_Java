@@ -1,4 +1,4 @@
-/*package managedbeans.ahmed;
+package managedbeans.ahmed;
 
 import java.io.Serializable;
 import java.util.List;
@@ -86,4 +86,3 @@ public class DeliveryBean implements Serializable{
 	}
 	
 }
-*/

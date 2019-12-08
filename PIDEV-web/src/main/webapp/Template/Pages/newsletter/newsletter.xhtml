@@ -1,0 +1,61 @@
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+xmlns:f="http://java.sun.com/jsf/core"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:ui="http://java.sun.com/jsf/facelets" template="/Template/Backend/homeback.xhtml">
+
+ <ui:define name="content">
+ <div class="container">
+      
+        <h:panelGroup columns="2"><h:form enctype="multipart/form-data"><table>
+<tr><td><h:outputText value="description"></h:outputText></td>
+<td><h:inputText id="validationdescription" value="#{newsletterBean.description}"
+size="6" 
+required="true" 
+requiredMessage="le champs description est obligatoire">
+<f:validateLength minimum="4" maximum="60" />
+</h:inputText></td></tr>
+<h:message for="validationdescription" style="color:red" />
+<tr><td><h:outputText value="title"></h:outputText></td>
+<td><h:inputText id="validationtitle" value="#{newsletterBean.title}"
+size="3" 
+required="true" 
+requiredMessage="le champs title est obligatoire">
+<f:validateLength minimum="4" maximum="10" />
+</h:inputText></td></tr>
+<h:message for="validationtitle" style="color:red" />
+<tr><td><h:outputText value="Picture"></h:outputText></td>
+<td><h:inputFile value="#{newsletterBean.picture}"></h:inputFile></td></tr>
+<tr><td>
+<h:commandButton action="#{newsletterBean.addNewsletter()}"
+value="ajouter" />
+<h:commandButton action="#{newsletterBean.mettreAjourNewsletter()}"
+value="mettre A jour Newsletter" /></td></tr>
+</table></h:form></h:panelGroup>
+
+<h:panelGroup columns="2">
+<h:form>
+<h:dataTable value="#{newsletterBean.newsletters}" var="newsletter" border="1">
+<h:column><f:facet name="header"><h:outputText value="indice"/></f:facet>
+<h:outputText value="#{newsletter.id}" /></h:column>
+<h:column><f:facet name="header"><h:outputText value="description"/></f:facet>
+<h:outputText value="#{newsletter.description}" /></h:column>
+<h:column><f:facet name="header"><h:outputText value="title"/></f:facet>
+<h:outputText value="#{newsletter.title}" /></h:column>
+<h:column><f:facet name="header"><h:outputText value="picture"/></f:facet>
+<h:outputText value="#{newsletter.picture}" /></h:column>
+<h:column><f:facet name="header"><h:outputText value="Action" /></f:facet>
+<h:commandButton action="#{newsletterBean.removeNewsletter(newsletter.id)}"
+value="Supprimer" />
+<h:commandButton action="#{newsletterBean.modifier(newsletter)}"
+value="modifier" />
+</h:column>
+</h:dataTable>
+</h:form>
+</h:panelGroup>
+
+    </div> <!-- /container -->
+    
+ </ui:define>
+ 
+</ui:composition> 
