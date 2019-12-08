@@ -10,6 +10,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
 import model.News;
+import model.NewsNote;
 import model.Store;
 
 /**
@@ -34,7 +35,9 @@ public class NewsService implements NewsServiceRemote, NewsServiceLocal {
 	
     @Override
 	public int addNews(News news) {
-		
+		NewsNote nn = new NewsNote();
+		nn.setNews(news);
+		em.persist(nn);
 		em.persist(news);
 		
 	return news.getId();
@@ -90,6 +93,13 @@ public class NewsService implements NewsServiceRemote, NewsServiceLocal {
 	public void ajouterNews(News news) {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	@Override
+	public void affecterNewsNote(int idN, int idF) {
+		NewsNote n = em.find(NewsNote.class, idN);
+		News f = em.find(News.class, idF);
+		n.setNews(f);
 	}
 
 

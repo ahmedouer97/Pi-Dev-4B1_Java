@@ -87,6 +87,12 @@
                 <type>war</type>
                 <scope>compile</scope>
             </dependency>
+            <!-- https://mvnrepository.com/artifact/org.primefaces/primefaces -->
+<dependency>
+    		<groupId>org.primefaces</groupId>
+    		<artifactId>primefaces</artifactId>
+    		<version>7.0</version>
+		</dependency>
 
             <!-- JBoss distributes a complete set of Java EE 7 APIs including
                 a Bill of Materials (BOM). A BOM specifies the versions of a "stack" (or 

@@ -2,6 +2,9 @@ package model;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.List;
 
 
@@ -22,6 +25,16 @@ public class User implements Serializable {
 	private String nom;
 
 	private String prenom;
+	@OneToMany(mappedBy = "sender")
+//	@JsonBackReference
+	@JsonIgnore
+	private List<Message> messagesSent;
+
+	@OneToMany(mappedBy = "receiver")
+	//@JsonBackReference
+	@JsonIgnore
+	private List<Message> messagesReceived;
+
 
 	//bi-directional many-to-one association to CommandeLigne
 	@OneToMany(mappedBy="user")
@@ -75,5 +88,22 @@ public class User implements Serializable {
 
 		return commandeLigne;
 	}
+
+	public List<Message> getMessagesSent() {
+		return messagesSent;
+	}
+
+	public void setMessagesSent(List<Message> messagesSent) {
+		this.messagesSent = messagesSent;
+	}
+
+	public List<Message> getMessagesReceived() {
+		return messagesReceived;
+	}
+
+	public void setMessagesReceived(List<Message> messagesReceived) {
+		this.messagesReceived = messagesReceived;
+	}
+	
 
 }

@@ -9,6 +9,7 @@ import model.News;
 @Remote
 public interface NewsServiceRemote {
 
+	void affecterNewsNote(int idN, int idF) ;
 void updateNews(News t);	
 	
 	List<News> getAllNews();

@@ -3,11 +3,16 @@ package model;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 @Entity
 public class News implements Serializable{
@@ -26,6 +31,16 @@ public class News implements Serializable{
 	private String nomAuteur;
     @Column(name = "datePublish")
     private Date datePublish ;
+    @JsonIgnore
+	@OneToOne(mappedBy="news",cascade={CascadeType.PERSIST,CascadeType.REMOVE,CascadeType.MERGE})
+	private NewsNote note;
+	
+	public NewsNote getNote() {
+		return note;
+	}
+	public void setNote(NewsNote note) {
+		this.note = note;
+	}
 	public String getTitre() {
 		return titre;
 	}
@@ -66,6 +81,8 @@ public class News implements Serializable{
 	public void setDatePublish(Date datePublish) {
 		this.datePublish = datePublish;
 	}
+	
+	
 	public News(String titre, String image, String contenue, String nomAuteur) {
 		super();
 		this.titre = titre;

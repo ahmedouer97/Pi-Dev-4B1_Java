@@ -12,7 +12,8 @@ import model.News;
 public interface NewsServiceLocal {
 
 
-
+	void affecterNewsNote(int idN, int idF) ;
+	
 	void updateNews(News t);	
 	
 	List<News> getAllNews();

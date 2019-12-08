@@ -2,8 +2,11 @@
 xmlns:f="http://java.sun.com/jsf/core"
 xmlns:h="http://java.sun.com/jsf/html"
 xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+xmlns:p="http://primefaces.org/ui"
+xmlns:jsf="http://xmlns.jcp.org/jsf"
+xmlns:a="http://xmlns.jcp.org/jsf/passthrough" 
 xmlns:ui="http://java.sun.com/jsf/facelets" template="/Template/Backend/homeback.xhtml">
-<ui:param name="page_name" value="Accueil" />
+<ui:param name="page_name" value="Accueil" />//p f h
  <ui:define name="content">
 
    <h:form>
@@ -36,13 +39,21 @@ xmlns:ui="http://java.sun.com/jsf/facelets" template="/Template/Backend/homeback
 value="Supprimer" /></h:column>
 
 
+<h:column><f:facet name="header"><h:outputText value="Action" /></f:facet>
+<p:rating id="ratingstars"   value="#{Newss.note.noteF}"> 
+             		<f:param name="contentId" value="#{Newss.note.id_note}" /> 
+           				 <p:ajax event="rate" listener="#{NewsBean.onrate(Newss.id)}"  update="@this"/>
+        			</p:rating>
+        		</h:column>
+
+
 
 
 </h:dataTable>
 </h:panelGroup>
 
-<br/><br/>
 
+<br/><br/>
 
 </h:form>
 
