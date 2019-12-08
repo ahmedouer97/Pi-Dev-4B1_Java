@@ -173,4 +173,19 @@ public class Offer implements Serializable {
 		return promotion;
 	}
 
+	public void set(String string, long l) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setLegendPosition(String string) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setShadow(boolean b) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
