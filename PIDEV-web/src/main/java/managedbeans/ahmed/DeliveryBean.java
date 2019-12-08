@@ -81,10 +81,6 @@ public class DeliveryBean implements Serializable{
 		deliverys=delsev.findAllDelivery();
 		return deliverys;
 	}
-
-
-
-
 	public void setDeliverys(List<Delivery> deliverys) {
 		this.deliverys = deliverys;
 	}

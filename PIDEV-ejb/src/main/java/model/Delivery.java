@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -17,7 +18,7 @@ public class Delivery implements Serializable {
 	private String name;
 	private String lastname;
 	private String location;
-	@OneToMany(mappedBy="delivery")
+	@OneToMany(mappedBy="delivery",fetch=FetchType.EAGER)
 	private List<CommandeLigne> commandelignes;
 	public Delivery() {
 		super();

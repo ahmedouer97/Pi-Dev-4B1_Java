@@ -1,0 +1,43 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+xmlns:f="http://java.sun.com/jsf/core"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:ui="http://java.sun.com/jsf/facelets" template="/Template/Backend/homeback.xhtml">
+ <ui:define name="content">
+ <div class="container">
+   <h:panelGroup columns="2"><h:form><table>
+<tr><td><h:outputText value="nom"></h:outputText></td>
+<td><h:inputText value="#{DeliveryBean.name}"></h:inputText></td></tr>
+<tr><td><h:outputText value="lastname"></h:outputText></td>
+<td><h:inputText value="#{DeliveryBean.lastname}"></h:inputText></td></tr>
+<tr><td><h:outputText value="location"></h:outputText></td>
+<td><h:inputText value="#{DeliveryBean.location}"></h:inputText></td></tr>
+<tr><td colspan="2"><h:commandLink value="Ajouter Delivry" action="#{DeliveryBean.adddelevry()}" /></td>
+<td><h:commandButton action="#{DeliveryBean.update()}" value="Mettre a jour
+dev" /></td></tr>
+</table></h:form></h:panelGroup> 
+<h:panelGroup columns="2">
+<h:form>
+<h:dataTable value="#{DeliveryBean.deliverys}" var="delivery" border="1">
+<h:column><f:facet name="header"><h:outputText value="Nom"
+/></f:facet>
+<h:outputText value="#{delivery.name}" /></h:column>
+<h:column><f:facet name="header"><h:outputText value="LastName"
+/></f:facet>
+<h:outputText value="#{delivery.lastname}" /></h:column>
+<h:column>
+<f:facet name="header"><h:outputText value="Location"
+/></f:facet>
+<h:outputText value="#{delivery.location}" /></h:column>
+<h:column>
+<f:facet name="header"><h:outputText value="Action" /></f:facet>
+<h:commandButton action="#{DeliveryBean.remdelevry(delivery.iddel)}"
+value="Supprimer" />
+<h:commandButton action="#{DeliveryBean.modifier(delivery)}" value="Modifier" />
+</h:column>
+</h:dataTable>
+</h:form>
+</h:panelGroup>
+    </div> <!-- /container -->
+ </ui:define>
+ 
+</ui:composition> 

@@ -38,9 +38,20 @@
          <url>http://www.apache.org/licenses/LICENSE-2.0.html</url>
       </license>
    </licenses>
-
+   <repositories>
+        <repository>
+            <id>prime-repo</id>
+            <name>PrimeFaces Maven Repository</name>
+            <url>http://repository.primefaces.org</url>
+            <layout>default</layout>
+        </repository>
+    </repositories>
    <dependencies>
-
+   <dependency>
+    <groupId>org.primefaces</groupId>
+    <artifactId>primefaces</artifactId>
+    <version>7.0</version>
+</dependency>
       <!-- Dependency on the EJB module so we can use it's services if needed -->
       <dependency>
          <groupId>tn.esprit</groupId>
@@ -113,21 +124,6 @@
 
    </dependencies>
    
-   <repositories>
-
-
-<repository>
-
-<id>primefaces-repository</id>
-
-<name>Primefaces repository</name>
-
-<url>http://repository.primefaces.org</url>
-
-</repository>
-
-</repositories>
-
    <build>
       <finalName>${project.artifactId}</finalName>
       <plugins>
@@ -141,5 +137,4 @@
          </plugin>
       </plugins>
    </build>
-
 </project>

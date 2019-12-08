@@ -1,0 +1,50 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+xmlns:f="http://java.sun.com/jsf/core"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:ui="http://java.sun.com/jsf/facelets" 
+xmlns:p="http://primefaces.org/ui"  
+template="/Template/Frontend/homefront.xhtml">
+ <ui:define name="content" >
+ <div class="container">
+<h:panelGroup columns="2">
+<h:form>
+<p:dataTable value="#{CommandeligneBean.commandelignes}" var="commandeligne" border="1">
+<p:column><f:facet name="header"><h:outputText value="passed date"
+/></f:facet>
+<h:outputText value="#{commandeligne.datePasse}" /></p:column>
+<p:column><f:facet name="header"><h:outputText value="quantité"
+/></f:facet>
+<h:outputText value="#{commandeligne.quantité}" /></p:column>
+<p:column>
+<f:facet name="header"><h:outputText value="montantotal"
+/></f:facet>
+<h:outputText value="#{commandeligne.montantotal}" /></p:column>
+<p:column>
+<f:facet name="header"><h:outputText value="Action" /></f:facet>
+<p:commandButton rendered="#{commandeligne.delivery==null}" actionListener="#{CommandeligneBean.addid(commandeligne.idcomlig)}" value="Pass Commande"  oncomplete="PF('dlg2').show();" update="pnl"/>
+</p:column>
+</p:dataTable>
+</h:form>
+</h:panelGroup>
+<p:dialog header="Modal Dialog" id="dialog" widgetVar="dlg2">
+<p:panelGrid columns="2" id="pnl">
+<h:form>
+<p:outputLabel for="@next" value="Location:" />
+        <p:selectOneMenu id="console" value="#{CommandeligneBean.location}" style="width:125px">
+            <f:selectItem itemLabel="Tunis" itemValue="Tunis" />
+            <f:selectItem itemLabel="Manouba" itemValue="Manouba" />
+            <f:selectItem itemLabel="Ariana" itemValue="Ariana" />
+            <f:facet name="footer">
+               <p:separator />
+               <h:outputText value="3 consoles" style="font-weight:bold;"/>
+            </f:facet>
+        </p:selectOneMenu>
+        <p:commandButton action="#{CommandeligneBean.affectercommande(CommandeligneBean.showid())}"
+value="Affect Commande" oncomplete="location.reload();"/>
+        </h:form>
+</p:panelGrid >
+</p:dialog>
+    </div> <!-- /container -->
+ </ui:define>
+ 
+</ui:composition> 

@@ -106,9 +106,7 @@
     		<artifactId>primefaces</artifactId>
     		<version>7.0</version>
 		</dependency>
-
     </dependencies>
-
     <build>
         <finalName>${project.artifactId}</finalName>
         <plugins>
