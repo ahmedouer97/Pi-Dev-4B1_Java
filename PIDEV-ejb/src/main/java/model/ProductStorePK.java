@@ -33,25 +33,37 @@ public class ProductStorePK implements Serializable {
 		this.boutiqueId = boutiqueId;
 	}
 
-	public boolean equals(Object other) {
-		if (this == other) {
-			return true;
-		}
-		if (!(other instanceof ProductStorePK)) {
-			return false;
-		}
-		ProductStorePK castOther = (ProductStorePK)other;
-		return 
-			(this.produitId == castOther.produitId)
-			&& (this.boutiqueId == castOther.boutiqueId);
-	}
+	
 
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		ProductStorePK other = (ProductStorePK) obj;
+		if (boutiqueId != other.boutiqueId)
+			return false;
+		if (produitId != other.produitId)
+			return false;
+		return true;
+	}
+	@Override
 	public int hashCode() {
 		final int prime = 31;
-		int hash = 17;
-		hash = hash * prime + this.produitId;
-		hash = hash * prime + this.boutiqueId;
-		
-		return hash;
+		int result = 1;
+		result = prime * result + boutiqueId;
+		result = prime * result + produitId;
+		return result;
 	}
+	public ProductStorePK(int produitId, int boutiqueId) {
+		super();
+		this.produitId = produitId;
+		this.boutiqueId = boutiqueId;
+	}
+	
+	
+	
 }

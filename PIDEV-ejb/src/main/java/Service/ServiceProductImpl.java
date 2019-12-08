@@ -2,10 +2,12 @@ package Service;
 
 
 import java.util.List;
+
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 
 import Interface.ServiceProduct;
 import model.Product;
@@ -19,12 +21,20 @@ public class ServiceProductImpl implements ServiceProduct {
 	EntityManager em;
 	
 	
-	public String getProductById(int ProductId) {
+	public Product getProductById(int ProductId) {
 		Product b = em.find(Product.class, ProductId);
-		return b.getNom();
+		return b;
 	}
 
+	public List<Product> getProductbyId() {
+		TypedQuery <Product> query = em.createQuery("select e from Product e where e.produitId=:produitId ", Product.class);
+		query.setParameter("produitId", 1);
+		return query.getResultList();
+
 		
+				
+						
+	}
 						
 
 	

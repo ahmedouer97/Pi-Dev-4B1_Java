@@ -1,4 +1,4 @@
-package ManagedBean;
+/*package ManagedBean;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -28,9 +28,7 @@ import model.Conseil;
 @SessionScoped
 public class ConseilBean implements Serializable {
 
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 1L;
 	private int conseilId;
 	private String Title;
@@ -44,7 +42,7 @@ public class ConseilBean implements Serializable {
 	
 	@EJB
 	ConseilService conseilService;
-	/****************************************************************************************/
+	/****************************************************************************************
 	
 	public String Ajouter () throws IOException {
 		
@@ -221,3 +219,4 @@ public class ConseilBean implements Serializable {
 	
 
 }
+*/

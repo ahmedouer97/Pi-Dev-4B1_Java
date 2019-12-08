@@ -1,4 +1,4 @@
-package Interface;
+/*package Interface;
 
 import java.util.List;
 
@@ -27,8 +27,9 @@ public interface ConseilServiceRemote {
 	void deleteConseilById(int ConseilId);
 
 	List<Conseil> findAllConseils();
-/*	boolean uploadProfileImage(String conseilImagePath);*/
+/*	boolean uploadProfileImage(String conseilImagePath);
 	
 	
 
 }
+*/

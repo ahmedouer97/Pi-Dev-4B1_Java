@@ -1,4 +1,4 @@
-package Service;
+/*package Service;
 
 import java.util.Date;
 
@@ -100,7 +100,7 @@ public class ConseilService implements ConseilServiceRemote {
 		} else {
 			return false;
 		}	
-	}*/
+	}**
 
 	
 
@@ -119,3 +119,4 @@ public class ConseilService implements ConseilServiceRemote {
 	
 
 }
+*/

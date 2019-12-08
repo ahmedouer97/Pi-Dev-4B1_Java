@@ -1,4 +1,4 @@
-package model;
+/*package model;
 
 
 import java.io.Serializable;
@@ -21,7 +21,7 @@ public class Conseil implements Serializable {
 
 	/**
 	 * 
-	 */
+	 
 	private static final long serialVersionUID = 1L;
 	
 	@Id
@@ -137,3 +137,4 @@ public class Conseil implements Serializable {
 		
 
 }
+*/

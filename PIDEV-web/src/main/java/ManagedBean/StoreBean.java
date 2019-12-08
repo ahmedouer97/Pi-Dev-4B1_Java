@@ -3,6 +3,8 @@ package ManagedBean;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Locale;
+
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -27,6 +29,9 @@ private TypeBoutique type;
 private Heure heureFerm;
 private Heure heureOuv;
 private int tel;
+private int updateid;
+
+private List<Store> filteredStore;
 
 private List<Store> stores;
 
@@ -46,6 +51,29 @@ return stores;
 public void removeStore(Integer boutiqueId)
 { ServiceStore.deleteStoreById(boutiqueId);
 }
+
+// modify
+
+public void modifyStore(Store Store) {
+	this.setNom(Store.getNom());
+	this.setVille(Store.getVille());
+	this.setAdresse(Store.getAdresse());
+	this.setLatitude(Store.getLatitude());
+	this.setLongitude(Store.getLongitude());
+	this.setDescription(Store.getDescription());
+	this.setTel(Store.getTel());
+	this.setHeureOuv(Store.getHeureOuv());
+	this.setHeureFerm(Store.getHeureFerm());
+	this.setUpdateid(Store.getBoutiqueId());
+}
+public void updateStore() {
+	
+	ServiceStore.modifyStore(new Store(updateid,nom,ville,adresse,description,latitude,
+			longitude, tel,  type ,heureOuv, heureFerm  ) );
+}
+
+
+
 public int getBoutiqueId() {
 	return boutiqueId;
 }
@@ -125,7 +153,45 @@ public void setServiceStore(ServiceStore serviceStore) {
 	ServiceStore = serviceStore;
 }
 
+public int getUpdateid() {
+	return updateid;
+}
+public void setUpdateid(int updateid) {
+	this.updateid = updateid;
+}
+public List<Store> getFilteredStore() {
+	return filteredStore;
+}
+public void setFilteredStore(List<Store> filteredStore) {
+	this.filteredStore = filteredStore;
+}
 
+///////////////////////////////////////////////////
+
+private int getInteger(String string) {
+    try {
+        return Integer.valueOf(string);
+    }
+    catch (NumberFormatException ex) {
+        return 0;
+    }
+}
+
+
+public boolean globalFilterFunction(Object value, Object filter, Locale locale) {
+    String filterText = (filter == null) ? null : filter.toString().trim().toLowerCase();
+    if (filterText == null || filterText.equals("")) {
+        return true;
+    }
+    int filterInt = getInteger(filterText);
+
+    Store store = (Store) value;
+    return store.getNom().toLowerCase().contains(filterText)
+            || store.getAdresse().toLowerCase().contains(filterText)
+            || store.getType().toString().toLowerCase().contains(filterText)
+            ||store.getVille().toString().toLowerCase().contains(filterText)
+            || store.getDescription().toLowerCase().contains(filterText);
+}
 
 
 }
