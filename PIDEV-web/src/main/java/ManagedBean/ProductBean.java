@@ -2,10 +2,15 @@ package ManagedBean;
 
 import java.io.Serializable;
 
+
 import java.util.List;
+import java.util.Map;
+
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
+
 import Interface.ServiceProduct;
 import model.Product;
 
@@ -34,8 +39,10 @@ private double prix;
 
 
 private int quantite;
+private int selectedproduct;
 
 private List<Product> products;
+private List<Product> productt;
 
 @EJB
 ServiceProduct ServiceProduct;
@@ -45,6 +52,16 @@ public List<Product> getAllProducts() {
 	products = ServiceProduct.getAllProducts();
 System.out.println(products);
 return products;
+}
+
+public List<Product> getProductbyId( ) {
+	/*FacesContext fc = FacesContext.getCurrentInstance();
+    Map<String,String> params = 
+       fc.getExternalContext().getRequestParameterMap();
+    data =  params.get("nom");*/ 
+	productt = ServiceProduct.getProductbyId();
+
+return productt;
 }
 
 
@@ -140,6 +157,22 @@ public ServiceProduct getServiceProduct() {
 
 public void setServiceProduct(ServiceProduct serviceProduct) {
 	ServiceProduct = serviceProduct;
+}
+
+public int getSelectedproduct() {
+	return selectedproduct;
+}
+
+public void setSelectedproduct(int selectedproduct) {
+	this.selectedproduct = selectedproduct;
+}
+
+public List<Product> getProductt() {
+	return productt;
+}
+
+public void setProductt(List<Product> productt) {
+	this.productt = productt;
 }
 
 

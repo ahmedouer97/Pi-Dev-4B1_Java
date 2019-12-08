@@ -1,15 +1,26 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
 xmlns:f="http://java.sun.com/jsf/core"
 xmlns:h="http://java.sun.com/jsf/html"
-xmlns:ui="http://java.sun.com/jsf/facelets" template="/Template/Backend/homeback.xhtml">
+xmlns:ui="http://java.sun.com/jsf/facelets" template="/Template/Backend/homeback.xhtml"
+xmlns:p="http://primefaces.org/ui">
+
+
 <ui:param name="page_name" value="Accueil" />
  <ui:define name="content">
 
    <h:form>
-     <center><h2>List of Stores</h2></center><br/><br/>
+   <h:link outcome="/CreateStore" value="Create new store"  class="btn btn-info"/><br/><br/>
+    <h:link outcome="/addProductStore" value="Add products in stores"  class="btn btn-info"/>
+     <center><h1>List of Stores</h1></center><br/><br/>
 <h:panelGroup columns="2">
 
-<h:dataTable class="table" value="#{storeBean.stores}" var="store" border="1">
+
+<h:dataTable class="table" var="store" value="#{storeBean.allStores}" widgetVar="carsTable2"
+                 emptyMessage="No cars found with given criteria" filteredValue="#{storeBean.filteredStore}"
+                 globalFilterFunction="#{storeBean.globalFilterFunction}">
+ 
+       
+
 
 <h:column><f:facet name="header"><h:outputText value="Store"
 /></f:facet>
@@ -31,26 +42,85 @@ xmlns:ui="http://java.sun.com/jsf/facelets" template="/Template/Backend/homeback
 
 <h:outputText value="#{store.tel}" /></h:column>
 
-<h:column><f:facet name="header"><h:outputText value="Type "/></f:facet>
 
-<h:outputText value="#{store.type}" /></h:column>
 
-<h:column><f:facet name="header"><h:outputText value="Opens at "/></f:facet>
 
-<h:outputText value="#{store.heureOuv}" /></h:column>
 
-<h:column><f:facet name="header"><h:outputText value="Closes at"/></f:facet>
 
-<h:outputText value="#{store.heureFerm}" /></h:column>
 
 <h:column><f:facet name="header"><h:outputText value="Action" /></f:facet>
-<h:commandButton action="#{storeBean.removeStore(store.boutiqueId)}"
-value="Supprimer" /></h:column>
+<h:commandButton class="btn btn-danger" action="#{storeBean.removeStore(store.boutiqueId)}"
+value="Delete"  />
+
+||<h:commandButton class="btn btn-success" action="#{storeBean.modifyStore(store)}"
+value="Edit"  /></h:column>
 </h:dataTable>
 </h:panelGroup>
 
 <br/><br/>
 
+
+</h:form>
+
+   
+    
+<h:form>
+<center>
+<table style="text-align: center;">
+<tr><td><br/><h:outputText value="Store name " class = "control-label col-md-2"></h:outputText></td>
+<td><br/><h:inputText value="#{storeBean.nom}" class = "form-control"></h:inputText></td></tr>
+
+<tr><td><br/><h:outputText value="City" class = "control-label col-md-2"></h:outputText></td>
+<td><br/><h:selectOneMenu value="#{storeBean.ville}" class = "form-control">
+<f:selectItem itemLabel="Choose city"
+itemValue=""/>
+<f:selectItems value="#{data.villes}" />
+</h:selectOneMenu></td></tr>
+
+
+<tr><td><br/><h:outputText value="Address" class = "control-label col-md-2"></h:outputText></td>
+<td><br/><h:inputText value="#{storeBean.adresse}" class = "form-control"></h:inputText></td></tr>
+
+<tr><td><br/><h:outputText value="Description" class = "control-label col-md-2"></h:outputText></td>
+<td><br/><h:inputText value="#{storeBean.description}" class = "form-control"></h:inputText></td></tr>
+
+<tr><td><br/><h:outputText value="Latitude" class = "control-label col-md-2"></h:outputText></td>
+<td><br/><h:inputText value="#{storeBean.latitude}" class = "form-control"></h:inputText></td></tr>
+
+<tr><td><br/><h:outputText value="Longitude" class = "control-label col-md-2"></h:outputText></td>
+<td><br/><h:inputText value="#{storeBean.longitude}" class = "form-control"></h:inputText></td></tr>
+
+<tr><td><br/><h:outputText value="Phone Number" class = "control-label col-md-2" ></h:outputText></td>
+<td><br/><h:inputText value="#{storeBean.tel}" class = "form-control"></h:inputText></td></tr>
+
+
+<tr><td><br/><h:outputText value="Type of store" class = "control-label col-md-2"></h:outputText></td>
+<td><br/><h:selectOneMenu value="#{storeBean.type}" class = "form-control">
+<f:selectItem itemLabel="Choose type"
+itemValue=""/>
+<f:selectItems value="#{data.typeBoutiques}" />
+</h:selectOneMenu></td></tr>
+
+
+<tr><td><br/><h:outputText value="Opens at" class = "control-label col-md-2"></h:outputText></td>
+<td><br/><h:selectOneMenu value="#{storeBean.heureOuv}" class = "form-control">
+<f:selectItem itemLabel="Choose time"
+itemValue=""/>
+<f:selectItems value="#{data.heures}" />
+</h:selectOneMenu></td></tr>
+
+<tr><td><br/><h:outputText value="Closes at" class = "control-label col-md-2"></h:outputText></td>
+<td><br/><h:selectOneMenu value="#{storeBean.heureFerm}" class = "form-control">
+<f:selectItem itemLabel="Choose time"
+itemValue=""/>
+<f:selectItems value="#{data.heures}" />
+</h:selectOneMenu></td></tr>
+
+<tr><td colspan="2"><br/><br/><h:commandButton value="Update Store"  class="btn btn-info" action="#{storeBean.updateStore()}" /></td></tr>
+
+
+</table>
+</center>
 
 </h:form>
     

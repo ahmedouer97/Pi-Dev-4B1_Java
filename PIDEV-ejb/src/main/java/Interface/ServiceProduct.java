@@ -12,10 +12,12 @@ public interface ServiceProduct  {
 
 	
 
-	public String getProductById(int ProductId);
+	public Product getProductById(int ProductId);
 
-
+	public List<Product> getProductbyId();
 
 	public List<Product> getAllProducts();
+	
+	
 
 }

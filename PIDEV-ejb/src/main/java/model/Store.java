@@ -54,6 +54,7 @@ public class Store implements Serializable {
 	private Ville ville;
 
 
+
 	//bi-directional many-to-one association to ProductStore
 	@OneToMany(mappedBy="store")
 	private List<ProductStore> productStores;
@@ -174,6 +175,9 @@ public class Store implements Serializable {
 
 		return productStore;
 	}
+	
+	
+
 
 	public Store( String nom, Ville ville,String adresse, String description, BigDecimal latitude,
 			BigDecimal longitude, int tel, TypeBoutique type , Heure heureOuv,Heure heureFerm) {
@@ -189,7 +193,21 @@ public class Store implements Serializable {
 		this.type = type;
 		this.ville = ville;
 	}
-	
+	public Store(int boutiqueId, String nom, Ville ville,String adresse, String description, BigDecimal latitude,
+			BigDecimal longitude, int tel, TypeBoutique type , Heure heureOuv,Heure heureFerm) {
+		super();
+		this.boutiqueId=boutiqueId;
+		this.adresse = adresse;
+		this.description = description;
+		this.heureFerm = heureFerm;
+		this.heureOuv = heureOuv;
+		this.latitude = latitude;
+		this.longitude = longitude;
+		this.nom = nom;
+		this.tel = tel;
+		this.type = type;
+		this.ville = ville;
+	}
 	
 
 }

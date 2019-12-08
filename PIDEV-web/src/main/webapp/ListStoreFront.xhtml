@@ -1,0 +1,64 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+xmlns:f="http://java.sun.com/jsf/core"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:ui="http://java.sun.com/jsf/facelets" template="/Template/Frontend/homefront.xhtml"
+xmlns:p="http://primefaces.org/ui">
+
+
+<ui:param name="page_name" value="Accueil" />
+ <ui:define name="content">
+
+   <h:form>
+
+     <center><h1>List of Stores</h1></center><br/><br/>
+<h:panelGroup columns="2">
+
+
+<h:dataTable class="table" var="store" value="#{storeBean.allStores}" widgetVar="carsTable2"
+                 emptyMessage="No cars found with given criteria" filteredValue="#{storeBean.filteredStore}"
+                 globalFilterFunction="#{storeBean.globalFilterFunction}">
+ 
+       
+
+
+<h:column><f:facet name="header"><h:outputText value="Store"
+/></f:facet>
+<h:outputText value="#{store.nom}" /></h:column>
+
+<h:column><f:facet name="header"><h:outputText value="City"
+/></f:facet>
+<h:outputText value="#{store.ville}" /></h:column>
+
+<h:column><f:facet name="header"><h:outputText value="Address"
+/></f:facet>
+<h:outputText value="#{store.adresse}" /></h:column>
+
+<h:column><f:facet name="header"><h:outputText value="Description"/></f:facet>
+
+<h:outputText value="#{store.description}" /></h:column>
+
+<h:column><f:facet name="header"><h:outputText value="Phone number"/></f:facet>
+
+<h:outputText value="#{store.tel}" /></h:column>
+
+<h:column><f:facet name="header"><h:outputText value="Type "/></f:facet>
+
+<h:outputText value="#{store.type}" /></h:column>
+
+
+
+
+</h:dataTable>
+</h:panelGroup>
+
+<br/><br/>
+
+
+</h:form>
+
+   
+  
+    
+ </ui:define>
+ 
+</ui:composition> 

@@ -1,0 +1,67 @@
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/Template/Backend/homeback.xhtml">
+	<ui:param name="page_name" value="Accueil" />
+	<ui:define name="title"> choisir une fonctionalite: </ui:define>
+
+	<ui:define name="content">
+		<div class="container">
+		
+			<h:panelGroup columns="2">
+				<h:form>
+					<h:dataTable value="#{conseilBean.conseils}" var="conseil"
+						border="1">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Title" />
+							</f:facet>
+							<h:outputText value="#{conseil.title}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="description" />
+							</f:facet>
+							<h:outputText value="#{conseil.description}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="date" />
+							</f:facet>
+							<h:outputText value="#{conseil.conseilDate}" />
+						</h:column>
+						<h:column>
+<f:facet name="header"><h:outputText value="image"/>
+</f:facet>
+<h:graphicImage value="#{conseil.conseilImagePath}" width="150" height="100"/>
+</h:column>
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Action" />
+							</f:facet>
+							<h:commandButton
+								action="#{conseilBean.removeConseil(conseil.conseilId)}"
+								value="Supprimer" />
+							<h:commandButton action="#{conseilBean.modifier(conseil)}"
+								value="Modifier" />
+						</h:column>
+
+
+
+
+					</h:dataTable>
+				</h:form>
+				<h:form>
+<h:commandButton value="new Conseil" action="#{conseilBean.addConseil}" />
+</h:form>
+			</h:panelGroup>
+
+			
+		</div>
+		<!-- /container -->
+
+	</ui:define>
+</ui:composition>

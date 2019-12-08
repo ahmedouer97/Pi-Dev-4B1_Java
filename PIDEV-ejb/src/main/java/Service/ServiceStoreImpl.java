@@ -24,9 +24,9 @@ public class ServiceStoreImpl implements ServiceStore {
 	}
 
 	
-	public String getStoreById(int StoreId) {
+	public Store getStoreById(int StoreId) {
 		Store b = em.find(Store.class, StoreId);
-		return b.getNom();
+		return b;
 	}
 
 	
@@ -69,6 +69,11 @@ public class ServiceStoreImpl implements ServiceStore {
 				return b;
 	}
 
+	
+	public void modifyStore(Store Store) {
+		em.merge(Store);
+	}
+	
 
 
 }

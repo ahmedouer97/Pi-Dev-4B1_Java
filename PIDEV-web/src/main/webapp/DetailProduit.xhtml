@@ -1,0 +1,95 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+xmlns:f="http://java.sun.com/jsf/core"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:ui="http://java.sun.com/jsf/facelets" template="/Template/Frontend/homefront.xhtml"
+xmlns:p="http://primefaces.org/ui">
+<ui:param name="page_name" value="Accueil" />
+ <ui:define name="content">
+
+   <h:form>
+
+     <center><h1>Details</h1></center><br/><br/>
+
+<h:panelGroup columns="2">
+<h:dataTable class="table" value="#{productBean.productbyId}" var="product" border="1">
+
+
+<h:column><f:facet name="header"><h:outputText value=""
+/></f:facet>
+
+
+   <h:graphicImage  height="270px;" width="170px;" value="/ressources/img/#{product.image}"></h:graphicImage>
+ </h:column>
+ <h:column>
+ <h:panelGrid>
+ <h:column>
+<h:outputText  value="Product :#{product.nom}" /></h:column>
+<h:column>
+<h:outputText value="Price :#{product.prix} TND" /></h:column>
+
+<h:column>
+<h:outputText value="Brand :#{product.brand}" /></h:column>
+
+<h:column>
+<h:outputText value="Network :#{product.network}" /></h:column>
+
+
+<h:outputText value="Description :#{product.description}" />
+
+
+ </h:panelGrid></h:column>
+</h:dataTable>
+
+</h:panelGroup>
+  <div style="text-align: center;"> <h:link outcome="/CreateStore" value="Add to cart"  class="btn btn-info"/></div><br/><br/>
+
+
+<br/>  <center><h1>Available in</h1></center><br/><br/>
+
+
+<h:panelGroup columns="2">
+<h:dataTable class="table" value="#{productStoreBean.storesBYProduct}" var="ps" border="1">
+
+
+<h:column style="text-align:center">
+
+
+   <h:graphicImage  height="270px;" width="370px;" value="/ressources/img/welcome.jpeg"></h:graphicImage>
+ </h:column>
+ <h:column>
+ <h:panelGrid>
+ <h:column>
+<h:outputText  value="Store :#{ps.store.nom}" /></h:column>
+<h:column>
+<h:outputText value="City :#{ps.store.ville}" /></h:column>
+
+<h:column>
+<h:outputText value="Address :#{ps.store.adresse}" /></h:column>
+
+<h:column>
+<h:outputText value="Description :#{ps.store.description}" /></h:column>
+
+
+<h:outputText value="Phone number :#{ps.store.tel}" />
+<h:outputText value="Opens at :#{ps.store.heureOuv}" />
+<h:outputText value="Closes at :#{ps.store.heureFerm}" />
+
+ </h:panelGrid></h:column>
+  
+ <h:button></h:button>
+
+</h:dataTable>
+
+</h:panelGroup>
+
+<br/><br/>
+<tr/>
+<div style="text-align: center;"><h:link style="text-aligh:center" outcome="/ListProduit" value="Back to list"  class="btn btn-info"/></div>
+<br/><br/>
+
+
+</h:form>
+    
+ </ui:define>
+ 
+</ui:composition> 

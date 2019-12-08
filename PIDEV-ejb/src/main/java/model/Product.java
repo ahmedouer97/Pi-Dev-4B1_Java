@@ -56,10 +56,7 @@ public class Product implements Serializable {
 	@OneToMany(mappedBy="product")
 	private List<ProductStore> productStores;
 
-	//bi-directional many-to-one association to ProductStore
-	@ManyToOne
-	@JoinColumn(name="ProduitId", referencedColumnName="ProduitId" , insertable=false, updatable=false)
-	private ProductStore productStore;
+	
 
 	public Product() {
 	}
@@ -180,34 +177,7 @@ public class Product implements Serializable {
 		return offer;
 	}
 
-	public List<ProductStore> getProductStores() {
-		return this.productStores;
-	}
 
-	public void setProductStores(List<ProductStore> productStores) {
-		this.productStores = productStores;
-	}
 
-	public ProductStore addProductStore(ProductStore productStore) {
-		getProductStores().add(productStore);
-		productStore.setProduct(this);
-
-		return productStore;
-	}
-
-	public ProductStore removeProductStore(ProductStore productStore) {
-		getProductStores().remove(productStore);
-		productStore.setProduct(null);
-
-		return productStore;
-	}
-
-	public ProductStore getProductStore() {
-		return this.productStore;
-	}
-
-	public void setProductStore(ProductStore productStore) {
-		this.productStore = productStore;
-	}
-
+	
 }

@@ -23,7 +23,7 @@ public Ville[] getVilles()
 
 
 public Heure[] getHeures()
-{ return Heure.values(); }
+{ return Heure.values().clone(); }
 
 
 public TypeBoutique[] getTypeBoutiques()

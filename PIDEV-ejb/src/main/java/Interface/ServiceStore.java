@@ -12,7 +12,7 @@ public interface ServiceStore  {
 
 	
 
-	public String getStoreById(int StoreId);
+	public Store getStoreById(int StoreId);
 
 	public void deleteStoreById(int StoreId);
 
@@ -24,5 +24,6 @@ public interface ServiceStore  {
 	public List<Store> getStorebyType(String type);
 
 	public List<Store> getAllStores();
+	public void modifyStore(Store Store);
 
 }

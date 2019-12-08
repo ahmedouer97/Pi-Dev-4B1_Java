@@ -1,16 +1,19 @@
 /*package model;
 
+
 import java.io.Serializable;
 
 import java.util.Date;
 import java.util.List;
+
+import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
+import javax.persistence.Lob;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -18,7 +21,7 @@ public class Conseil implements Serializable {
 
 	/**
 	 * 
-	
+	 
 	private static final long serialVersionUID = 1L;
 	
 	@Id
@@ -35,7 +38,7 @@ public class Conseil implements Serializable {
 	
 	
 	
-
+	
 	@Column(name = "ConseilImagePath")
     private String conseilImagePath;
 	
@@ -71,6 +74,8 @@ public class Conseil implements Serializable {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+
+	
 
 	
 
@@ -124,7 +129,6 @@ public class Conseil implements Serializable {
 	}
 
 	
-	
 
 	
 	
@@ -133,5 +137,4 @@ public class Conseil implements Serializable {
 		
 
 }
-
- */	
+*/

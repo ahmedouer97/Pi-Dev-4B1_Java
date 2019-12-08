@@ -4,7 +4,7 @@ package model;
 public enum Heure {
 
 		  //Objets directement construits
-		  heure1 ("8h"),
+		  heure1 ("8"),
 		  heure2 ("8h30"),
 		  heure3 ("9h"),
 		  heure4 ("9h30"),
@@ -25,9 +25,11 @@ public enum Heure {
 		  heure19 ("17h"),
 		  heure20 ("17h30"),
 		  heure21("18h"),
-		  heure22("18h30"),;
+		  heure22("18h30"),
+		  heure23("19h"),
+		  heure24("19h30");
 		   
-		  private String name = "";
+		 private  String name = "";
 		   
 		  //Constructeur
 		  Heure(String name){
